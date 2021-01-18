@@ -1,0 +1,93 @@
+.skull {
+    animation: fadeIn;
+    animation-duration: 1s;
+}
+
+.skull pre r {
+    color: #dc3545;
+    animation: flash 3s infinite linear;
+}
+
+.fade {
+    animation: fadeOut;
+    animation-duration: 1s;
+}
+
+.numpad {
+    font-size: 5vh;
+
+    animation: fadeIn;
+    animation-duration: 1s;
+}
+
+.numpad td {
+    padding: 0.25em;
+}
+
+.numpad td a {
+    display: block;
+    color: #b6bfd6;
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+
+    padding: 0.5em 1em;
+    border: 2px solid #3354a6;
+    border-radius: 999px;
+}
+
+.numpad td a:hover {
+    background: url(/assets/img/flame-grayscale.png);
+    background-repeat: no-repeat;
+    background-position: center -1vh;
+    background-size: contain;
+}
+
+.numpad td a:active {
+    background: url(/assets/img/flame.png);
+    background-repeat: no-repeat;
+    background-position: center -1vh;
+    background-size: contain;
+
+    animation: flash 1s infinite;
+}
+
+.password {
+    color: #aaa;
+    height: 20vh;
+    padding-top: 8vh;
+    font-size: 8vh;
+    text-align: center;
+    letter-spacing: 1vw;
+}
+
+.invalid {
+    animation: shakeX;
+    animation-duration: 1s;
+}
+
+.valid {
+    animation: flash;
+    animation-duration: 1s;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
+}
+
+.spinner {
+    width: 10vw;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 3vw;
+}
+
+.spinner img {
+    animation: rotation 2s infinite linear;
+}

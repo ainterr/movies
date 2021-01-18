@@ -1,0 +1,70 @@
+.numpad {
+    font-size: 3vh;
+}
+
+.numpad td {
+    padding: 0.25em;
+}
+
+.numpad td a {
+    display: block;
+    color: #aaa;
+    text-decoration: none;
+
+    padding: 0.5em 1em;
+    border: 1px solid;
+    border-radius: 999px;
+}
+
+.numpad td a:hover {
+    background: url(/assets/img/flame-grayscale.png);
+    background-repeat: no-repeat;
+    background-position: center -1vh;
+    background-size: contain;
+}
+
+.numpad td a:active {
+    background: url(/assets/img/flame.png);
+    background-repeat: no-repeat;
+    background-position: center -1vh;
+    background-size: contain;
+}
+
+/*
+.numpad {
+    width: 45vw;
+    text-align: center;
+    font-size: 3vh;
+}
+
+.numpad .col-4 { 
+    vertical-align: center;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+}
+
+.numpad .col-4 .digit {
+    color: #aaa;
+    text-decoration: none;
+    border: 1px solid;
+    border-radius: 99999999px;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 0.75em;
+    padding-bottom: 0.75em;
+}
+
+.numpad .col-4 .digit:hover {
+    background: url(/assets/img/flame-grayscale.png);
+    background-repeat: no-repeat;
+    background-position: center -1vh;
+    background-size: contain;
+}
+
+.numpad .col-4 .digit:active {
+    background: url(/assets/img/flame.png);
+    background-repeat: no-repeat;
+    background-position: center -1vh;
+    background-size: contain;
+}
+*/

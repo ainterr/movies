@@ -1,1 +1,2 @@
-<button type="button" class="btn btn-primary">Primary</button>
+<app-login *ngIf="!auth.isAuthenticated()"></app-login>
+<app-randomizer *ngIf="auth.isAuthenticated()"></app-randomizer>
