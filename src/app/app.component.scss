@@ -30,41 +30,15 @@
     background-size: contain;
 }
 
-/*
-.numpad {
-    width: 45vw;
-    text-align: center;
+.navigation {
+    height: 10vh;
+    background-color: #eee;
+
     font-size: 3vh;
+    padding-top: 1vh;
 }
 
-.numpad .col-4 { 
-    vertical-align: center;
-    margin-top: 3vh;
-    margin-bottom: 3vh;
+.viewport {
+    height: 100vh;
+    background-color: #eee;
 }
-
-.numpad .col-4 .digit {
-    color: #aaa;
-    text-decoration: none;
-    border: 1px solid;
-    border-radius: 99999999px;
-    padding-left: 1em;
-    padding-right: 1em;
-    padding-top: 0.75em;
-    padding-bottom: 0.75em;
-}
-
-.numpad .col-4 .digit:hover {
-    background: url(/assets/img/flame-grayscale.png);
-    background-repeat: no-repeat;
-    background-position: center -1vh;
-    background-size: contain;
-}
-
-.numpad .col-4 .digit:active {
-    background: url(/assets/img/flame.png);
-    background-repeat: no-repeat;
-    background-position: center -1vh;
-    background-size: contain;
-}
-*/

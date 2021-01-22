@@ -1,0 +1,21 @@
+.loading {
+    position: absolute;
+    bottom: 1vh;
+    right: 1vh;
+}
+
+.randomizer-button {
+    margin-top: 10vh;
+    height: 70vh;
+
+    cursor: pointer;
+
+    animation: pulse;
+    animation-duration: 0.5s; 
+    animation-iteration-count: 3;
+    animation-timing-function: ease;
+}
+
+.selected {
+    height: 90vh;
+}
