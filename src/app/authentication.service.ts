@@ -4,7 +4,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  private PASSWORD: string = "80085";
+  // the password that was used in the movie
+  private PASSWORD: string = "430";
+
   private authenticated: boolean = false;
   private stream: number[] = [];
 
