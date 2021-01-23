@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 import { Movie } from '../data.service';
+import { genre_emoji, genre_color } from '../utils'
 
 @Component({
   selector: 'app-randomizer',
@@ -8,34 +9,6 @@ import { Movie } from '../data.service';
   styleUrls: ['./randomizer.component.scss']
 })
 export class RandomizerComponent {
-  GENRE_EMOJI_MAP = {
-    'Shit': '💩',
-    'Weeby': '🍣',
-    'Action': '🔫',
-    'Comedy': '🤣',
-    'Kung Fu': '🥋',
-    'Ghibli': '🐹',
-    'Horror': '🧟',
-    'Suspense': '😨',
-    'Drama': '🎭'
-  }
-  GENRE_EMOJI_UNKNOWN = '🍿';
-
-  GENRE_COLOR_MAP = {
-    /*
-    'Shit': '#ffedd6',
-    'Weeby': '#ffd4f4',
-    'Action': '#ffe6e6',
-    'Comedy': '#e8ffd6',
-    'Kung Fu': '#d6fff5',
-    'Ghibli': '#f9d6ff',
-    'Horror': '#b0b0b0',
-    'Suspense': '#e6e7ff',
-    'Drama': '#d6fff8'
-    */
-  }
-  GENRE_COLOR_UNKNOWN = '#eee';
-
   @Input() movies: Movie[];
   selected: Movie;
 
@@ -53,23 +26,7 @@ export class RandomizerComponent {
     this.selected = undefined;
   }
 
-  genre_emoji(selected: string): string {
-    let emoji: string = this.GENRE_EMOJI_MAP[selected];
+  genre_emoji = genre_emoji;
 
-    if(emoji === undefined) {
-      emoji = this.GENRE_EMOJI_UNKNOWN;
-    }
-
-    return emoji;
-  }
-
-  genre_color(selected: string): string {
-    let color: string = this.GENRE_COLOR_MAP[selected];
-
-    if(color === undefined) {
-      color = this.GENRE_COLOR_UNKNOWN;
-    }
-
-    return color;
-  }
+  genre_color = genre_color;
 }

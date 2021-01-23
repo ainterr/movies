@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+import { Movie, Review } from '../data.service';
+import { genre_emoji } from '../utils';
 
 @Component({
   selector: 'app-reviews',
   templateUrl: './reviews.component.html',
   styleUrls: ['./reviews.component.scss']
 })
-export class ReviewsComponent implements OnInit {
+export class ReviewsComponent {
+  @Input() movies: Movie[];
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
-
+  genre_emoji = genre_emoji;
 }

@@ -10,7 +10,7 @@ import { Movie, Review, DataService } from "./data.service";
 })
 export class AppComponent implements OnInit {
   unwatched: Movie[];
-  movies: Movie[];
+  watched: Movie[];
 
   RANDOMIZER = 'randomizer';
   REVIEWS = 'reviews';
@@ -24,8 +24,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.data.fetch().subscribe(movies => {
-      this.movies = movies;
       this.unwatched = movies.filter(movie => !movie.watched);
+      this.watched = movies.filter(movie => movie.watched);
     });
   }
 
