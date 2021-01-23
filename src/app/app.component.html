@@ -1,0 +1,29 @@
+<app-login *ngIf="!auth.isAuthenticated()"></app-login>
+
+<div *ngIf="auth.isAuthenticated()" class="viewport">
+
+  <div class="container-fluid navigation">
+    <div class="btn-group d-flex">
+      <a
+        class="btn btn-outline-secondary"
+        [ngClass]="{active: selected === RANDOMIZER}"
+        (click)="select(RANDOMIZER)"
+      >Randomizer</a>
+      <a 
+        class="btn btn-outline-secondary"
+        [ngClass]="{active: selected === REVIEWS}"
+        (click)="select(REVIEWS)"
+      >Reviews</a>
+    </div>
+  </div>
+
+  <app-randomizer 
+    *ngIf="selected === RANDOMIZER"
+    [movies]="unwatched"
+  ></app-randomizer>
+  <app-reviews
+    *ngIf="selected === REVIEWS"
+    [movies]="watched"
+  ></app-reviews>
+
+</div>

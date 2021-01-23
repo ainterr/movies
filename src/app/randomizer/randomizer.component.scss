@@ -1,0 +1,20 @@
+.loading {
+    position: absolute;
+    bottom: 1vh;
+    right: 1vh;
+}
+
+.randomizer-button {
+    margin-top: 10vh;
+    height: 70vh;
+
+    cursor: pointer;
+
+    animation: pulse 0.5s linear 0.5s 2, fadeIn 1s;
+}
+
+.selected {
+    height: 90vh;
+
+    animation: fadeIn 0.5s;
+}

@@ -1,0 +1,40 @@
+<div *ngIf="movies">
+  <div *ngIf="!selected">
+
+    <img 
+      src="assets/img/popcorn.png"
+      class="img-fluid d-block mx-auto randomizer-button"
+      (click)="select()"
+    >
+
+  </div>
+
+  <div *ngIf="selected">
+
+    <div 
+      class="container-fluid text-center selected"
+      [style]="'background-color: '+genre_color(selected.genre)+';'"
+    >
+      <h1 class="pt-5 mb-3" style="font-size: 20vh">{{ genre_emoji(selected.genre) }}</h1>
+      <h1>{{ selected.title }}</h1>
+      <h6 class="text-muted mb-3">{{ selected.genre }}</h6>
+
+      <div class="btn-group">
+        <a 
+          class="btn btn-outline-danger"
+          (click)="reset()"
+        >No</a>
+        <a 
+          class="btn btn-outline-success"
+          href="http://www.google.com/search?q={{ selected.title }}"
+          target="_blank"
+        >Go</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div *ngIf="!movies">
+  <div class="loading spinner-grow" role="status"></div>
+</div>

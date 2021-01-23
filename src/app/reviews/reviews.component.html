@@ -1,0 +1,24 @@
+<div class="container-fluid reviews pt-1">
+  <div class="card mb-2 shadow-sm" *ngFor="let movie of movies">
+    <div class="card-header">
+      <h4>{{ genre_emoji(movie.genre) }} {{ movie.title }}</h4>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div
+          class="col-md-4 review text-center"
+          *ngFor="let review of movie.reviews; let i = index"
+        >
+          <hr *ngIf="i > 0" class="d-md-none">
+
+          <h6 class="text-muted">{{ review.score }} / 10</h6>
+
+          <blockquote class="blockquote">
+            <p class="mb-0">{{ review.notes }}</p>
+            <footer class="blockquote-footer"><cite>{{ review.reviewer }}</cite></footer>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

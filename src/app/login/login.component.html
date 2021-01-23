@@ -1,0 +1,74 @@
+<div style="height: 100vh; background: #222; overflow: hidden">
+
+<div class="skull" [ngClass]="{fade: skull_fade}" style="padding-top: 5vh" *ngIf="skull">
+<div class="text-center">
+<pre class="text-success" style="margin-top: 10vh; font-size:1.5vh; display: inline-block; text-align: left;">
+                     .ed"""" """$$$$be.
+                   -"           ^""**$$$e.
+                 ."                   '$$$c
+                /                      "4$$b
+               d  3                      $$$$
+               $  *                   .$$$$$$
+              .$  ^c           $$$$$e$$$$$$$$.
+              d$L  4.         4$$$$$$$$$$$$$$b
+              $$$$b ^ceeeee.  4$$ECL.F*$$$$$$$
+  e$""=.      $$$$P        $ $$$$$$$$$- $$$$$$
+ z$$b. ^c     3$$$F  <r> $$ </r>    $"$$$$ <r>$$</r>  $$$$*"      .=""$c
+4$$$$L        $$P"         .$ $$$$$...e$$        .=  e$$$.
+^*$$$$$c  %..   *c    ..    $$ 3$$$$$$$$$$eF     zP  d$$$$$
+  "**$$$ec   "   %ce""    $$$  $$$$$$$$$$*    .r" =$$$$P""
+        "*$b.  "c  *$e.    *** d$$$$$"L$$    .d"  e$$***"
+          ^*$$c ^$c $$$      4J$$$$$% $$$ .e*".eeP"
+             "$$$$$$"'$=e....$*$$**$cz$$" "..d$*"
+               "*$$$  *=%4.$ L L$ P3$$$F $$$P"
+                  "$   "%*ebJLzb$e$$$$$b $P"
+                    %..      4$$$$$$$$$$ "
+                     $$$e   z$$$$$$$$$$%
+                      "*$c  "$$$$$$$P"
+                       ."""*$$$$$$$$bc
+                    .-"    .$***$$$"""*e.
+                 .-"    .e$"     "*$c  ^*b.
+          .=*""""    .e$*"          "*bc  "*$e..
+        .$"        .z*"               ^*$e.   "*****e.
+        $$ee$c   .d"                     "*$.        3.
+        ^*$E")$..$"                         *   .ee==d%
+           $.d$$$*                           *  J$$$e*
+            """""                              "$$$"
+</pre>
+</div>
+</div>
+
+<div id="input" *ngIf="!skull">
+  <div class="password" [ngClass]="{invalid: !valid}">
+    {{ getPassword() }}
+  </div>
+  
+  <table class="numpad mx-auto">
+    <tr>
+      <td><a (click)="press(1)">1</a></td>
+      <td><a (click)="press(2)">2</a></td>
+      <td><a (click)="press(3)">3</a></td>
+    </tr>
+    <tr>
+      <td><a (click)="press(4)">4</a></td>
+      <td><a (click)="press(5)">5</a></td>
+      <td><a (click)="press(6)">6</a></td>
+    </tr>
+    <tr>
+      <td><a (click)="press(7)">7</a></td>
+      <td><a (click)="press(8)">8</a></td>
+      <td><a (click)="press(9)">9</a></td>
+    </tr>
+    <tr>
+      <td><a (click)="submit()">R</a></td>
+      <td><a (click)="press(0)">0</a></td>
+      <td><a (click)="clear()">C</a></td>
+    </tr>
+  </table>
+
+  <div class="spinner">
+    <img src="assets/img/skull.png" class="img-fluid">
+  </div>
+</div>
+
+</div>
