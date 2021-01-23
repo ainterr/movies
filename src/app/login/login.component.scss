@@ -37,14 +37,14 @@
 }
 
 .numpad td a:hover {
-    background: url(/assets/img/flame-grayscale.png);
+    background: url('../../assets/img/flame-grayscale.png');
     background-repeat: no-repeat;
     background-position: center -1vh;
     background-size: contain;
 }
 
 .numpad td a:active {
-    background: url(/assets/img/flame.png);
+    background: url('../../assets/img/flame.png');
     background-repeat: no-repeat;
     background-position: center -1vh;
     background-size: contain;
