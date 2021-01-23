@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
-import { Movie, Review, DataService } from '../data.service';
+import { Movie } from '../data.service';
 
 @Component({
   selector: 'app-randomizer',
   templateUrl: './randomizer.component.html',
   styleUrls: ['./randomizer.component.scss']
 })
-export class RandomizerComponent implements OnInit {
+export class RandomizerComponent {
   GENRE_EMOJI_MAP = {
     'Shit': '💩',
     'Weeby': '🍣',
@@ -34,14 +34,10 @@ export class RandomizerComponent implements OnInit {
   }
   GENRE_COLOR_UNKNOWN = '#eee';
 
-  movies: Movie[];
+  @Input() movies: Movie[];
   selected: Movie;
 
-  constructor(private data: DataService) { }
-
-  ngOnInit(): void {
-    this.data.fetch().subscribe(movies => this.movies = movies);
-  }
+  constructor() { }
 
   private random(options: Movie[]): Movie {
     return options[Math.floor(Math.random()*options.length)];
