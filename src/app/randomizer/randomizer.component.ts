@@ -22,6 +22,7 @@ export class RandomizerComponent {
   GENRE_EMOJI_UNKNOWN = '🍿';
 
   GENRE_COLOR_MAP = {
+    /*
     'Shit': '#ffedd6',
     'Weeby': '#ffd4f4',
     'Action': '#ffe6e6',
@@ -31,6 +32,7 @@ export class RandomizerComponent {
     'Horror': '#b0b0b0',
     'Suspense': '#e6e7ff',
     'Drama': '#d6fff8'
+    */
   }
   GENRE_COLOR_UNKNOWN = '#eee';
 

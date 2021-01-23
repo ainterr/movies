@@ -1,41 +1,11 @@
-.numpad {
-    font-size: 3vh;
-}
-
-.numpad td {
-    padding: 0.25em;
-}
-
-.numpad td a {
-    display: block;
-    color: #aaa;
-    text-decoration: none;
-
-    padding: 0.5em 1em;
-    border: 1px solid;
-    border-radius: 999px;
-}
-
-.numpad td a:hover {
-    background: url(/assets/img/flame-grayscale.png);
-    background-repeat: no-repeat;
-    background-position: center -1vh;
-    background-size: contain;
-}
-
-.numpad td a:active {
-    background: url(/assets/img/flame.png);
-    background-repeat: no-repeat;
-    background-position: center -1vh;
-    background-size: contain;
-}
-
 .navigation {
     height: 10vh;
     background-color: #eee;
 
     font-size: 3vh;
     padding-top: 1vh;
+
+    animation: fadeIn 1s;
 }
 
 .viewport {

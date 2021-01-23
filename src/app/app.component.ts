@@ -12,6 +12,11 @@ export class AppComponent implements OnInit {
   unwatched: Movie[];
   movies: Movie[];
 
+  RANDOMIZER = 'randomizer';
+  REVIEWS = 'reviews';
+
+  selected: string = this.RANDOMIZER;
+
   constructor(
     public auth: AuthenticationService,
     private data: DataService,
@@ -22,5 +27,9 @@ export class AppComponent implements OnInit {
       this.movies = movies;
       this.unwatched = movies.filter(movie => !movie.watched);
     });
+  }
+
+  select(state: string): void {
+    this.selected = state;
   }
 }

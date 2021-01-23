@@ -10,12 +10,11 @@
 
     cursor: pointer;
 
-    animation: pulse;
-    animation-duration: 0.5s; 
-    animation-iteration-count: 3;
-    animation-timing-function: ease;
+    animation: pulse 0.5s linear 0.5s 2, fadeIn 1s;
 }
 
 .selected {
     height: 90vh;
+
+    animation: fadeIn 0.5s;
 }

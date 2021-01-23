@@ -4,10 +4,26 @@
 
   <div class="container-fluid navigation">
     <div class="btn-group d-flex">
-      <a class="btn btn-outline-secondary active" aria-current="page">Randomizer</a>
-      <a class="btn btn-outline-secondary disabled">Reviews</a>
+      <a
+        class="btn btn-outline-secondary"
+        [ngClass]="{active: selected === RANDOMIZER}"
+        (click)="select(RANDOMIZER)"
+      >Randomizer</a>
+      <a 
+        class="btn btn-outline-secondary"
+        [ngClass]="{active: selected === REVIEWS}"
+        (click)="select(REVIEWS)"
+      >Reviews</a>
     </div>
   </div>
 
-  <app-randomizer [movies]="unwatched"></app-randomizer>
+  <app-randomizer 
+    *ngIf="selected === RANDOMIZER"
+    [movies]="unwatched"
+  ></app-randomizer>
+  <app-reviews
+    *ngIf="selected === REVIEWS"
+    [movies]="unwatched"
+  ></app-reviews>
+
 </div>
