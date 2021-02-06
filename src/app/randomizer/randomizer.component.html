@@ -1,11 +1,52 @@
 <div *ngIf="movies">
-  <div *ngIf="!selected">
+  <div class="selection" *ngIf="!selected">
 
-    <img 
-      src="assets/img/popcorn.png"
-      class="img-fluid d-block mx-auto randomizer-button"
-      (click)="select()"
-    >
+    <div class="container">
+      <div class="card filter">
+
+      <div class="card-header p-0">
+        <h2 class="mb-0">
+          <button 
+            class="btn btn-block text-center"
+            [ngClass]="{'btn-light': !isFiltered(), 'btn-secondary': isFiltered()}"
+            type="button"
+            data-toggle="collapse"
+            data-target="#genres"
+          >Genres</button>
+        </h2>
+      </div>
+
+      <div id="genres" class="container collapse mt-3 mb-2">
+        <div class="row justify-content-center">
+          <ng-container *ngFor="let genre of genres()">
+            <div class="col-auto px-1">
+              <button 
+                type="button"
+                class="btn btn-lg btn-outline-secondary mb-2 px-4"
+                title="{{ genre }}"
+                [ngClass]="{ active: isFiltered(genre) }"
+                (click)="toggleFilter(genre)"
+              >{{ genre_emoji(genre) }}</button>
+            </div>
+          </ng-container>
+        </div>
+        <button
+          class="btn btn-sm btn-outline-secondary btn-block text-center"
+          [ngClass]="{ active: !isFiltered() }"
+          (click)="resetFilter()"
+        >All
+        </button>
+      </div>
+
+      </div>
+
+      <img 
+        src="assets/img/popcorn.png"
+        class="img-fluid d-block mx-auto randomizer-button"
+        (click)="select()"
+      >
+
+    </div>
 
   </div>
 
