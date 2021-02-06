@@ -4,17 +4,32 @@
     right: 1vh;
 }
 
+.selection {
+    animation: fadeIn 0.5s;
+}
+
+.filter {
+    z-index: 999;
+}
+
 .randomizer-button {
-    margin-top: 10vh;
-    height: 70vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
 
-    cursor: pointer;
-
-    animation: pulse 0.5s linear 0.5s 2, fadeIn 1s;
+    max-width: 50%;
+    max-height: 60%;
 }
 
 .selected {
     height: 90vh;
 
     animation: fadeIn 0.5s;
+}
+
+.selected .logo {
+    font-size: 12vh;
+
+    padding-top: 10rem !important;
 }

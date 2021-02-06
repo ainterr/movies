@@ -5,6 +5,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Genere selection to movie randomizer.
+
+### Fixed
+- Oversized movie selector button on some displays.
+
+### Changed
+- Minor relative sizing tweaks.
+- Genre emoji changes and additions.
 
 ## [1.0.1] - 2017-01-22
 ### Fixed

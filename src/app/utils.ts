@@ -1,13 +1,14 @@
 const GENRE_EMOJI_MAP = {
   'Shit': '💩',
   'Weeby': '🍣',
-  'Action': '🔫',
+  'Action': '🎬',
   'Comedy': '🤣',
   'Kung Fu': '🥋',
   'Ghibli': '🐹',
   'Horror': '🧟',
   'Suspense': '😨',
-  'Drama': '🎭'
+  'Drama': '🎭',
+  'Wes': '🦊'
 }
 const GENRE_EMOJI_UNKNOWN = '🍿';
 
