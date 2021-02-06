@@ -28,14 +28,6 @@ export class RandomizerComponent {
     );
   }
 
-  filter(genre: string): void {
-    this.filters[genre] = true;
-  }
-
-  unfilter(genre: string): void {
-    this.filters[genre] = false;
-  }
-
   toggleFilter(genre: string): void {
     this.filters[genre] = !this.filters[genre];
   }
@@ -60,16 +52,22 @@ export class RandomizerComponent {
     return this.filters[genre] === true;
   }
 
-  select(): void {
-    let options: Movie[] = this.movies;
-    
+  private filter(options: Movie[]): Movie[] {
     if(this.isFiltered()) {
       options = options.filter(
         m => this.filters[m.genre]
       );
     }
 
-    this.selected = this.random(options);
+    return options;
+  }
+
+  count(): number {
+    return this.filter(this.movies).length;
+  }
+
+  select(): void {
+    this.selected = this.random(this.filter(this.movies));
   }
 
   reset(): void {
