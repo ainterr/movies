@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [1.1.0] - 2021-02-06
 ### Added
 - Genere selection to movie randomizer.
 
@@ -15,16 +17,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Minor relative sizing tweaks.
 - Genre emoji changes and additions.
 
-## [1.0.1] - 2017-01-22
+## [1.0.1] - 2021-01-22
 ### Fixed
 - Broken image asset path in production build.
 
-## [1.0.0] - 2020-01-22
+## [1.0.0] - 2021-01-22
 ### Added
 - Face/Off "login" screen.
 - Movie selection randomizer.
 - Watched movie review summary.
 
-[Unreleased]: https://github.com/ainterr/movies/compare/v1.0.1...HEAD
+[Unreleased]: https://github.com/ainterr/movies/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/ainterr/movies/compare/v1.0.1...v1.1.0
 [1.0.1]: https://github.com/ainterr/movies/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/ainterr/movies/releases/tag/v1.0.0
