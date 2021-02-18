@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RandomizerComponent } from './randomizer/randomizer.component';
 import { ReviewsComponent } from './reviews/reviews.component';
+import { KonamiComponent } from './konami/konami.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RandomizerComponent,
-    ReviewsComponent
+    ReviewsComponent,
+    KonamiComponent
   ],
   imports: [
     BrowserModule,
