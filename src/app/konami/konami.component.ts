@@ -1,14 +1,18 @@
-import { Component, OnInit, Input, Output, EventEmitter, HostListener } from '@angular/core';
+import { 
+  Component, OnInit, Input, Output, EventEmitter, HostListener
+} from '@angular/core';
 
 import { Movie } from '../data.service';
 import { genre_emoji, genre_color } from '../utils';
+
 
 interface Shot {
   id: number;
   left: number;
   bottom: number;
-  interval?;
+  interval?: number;
 }
+
 
 @Component({
   selector: 'app-konami',
@@ -32,7 +36,7 @@ export class KonamiComponent implements OnInit {
     'a',
     'Enter',
   ];
-  private index: number = 0;
+  private codeIndex: number = 0;
 
   private audioStart: HTMLAudioElement;
   private audioMusic: HTMLAudioElement;
@@ -41,57 +45,43 @@ export class KonamiComponent implements OnInit {
   private audioDeath: HTMLAudioElement;
   private audioWin: HTMLAudioElement;
 
-  active: boolean = false;
+  private POSITION_MIN: number = 5;
+  private POSITION_MAX: number = 95;
+  private POSITION_TICK: number = 2.5;
+
+  private DIRECTION_LEFT: boolean = false;
+  private DIRECTION_RIGHT: boolean = true;
+
+  private INVADER_MIN: number = 35;
+  private INVADER_MAX: number = 65;
+  private INVADER_TICK: number = 2.5;
+
+  private INVADER_INTERVAL: number = 1000;
+
+  private SHOT_COOLDOWN: number = 500;
 
   animationWinning: boolean = false;
   animationLosing: boolean = false;
   animationFading: boolean = false;
 
-  private POSITION_MIN = 5;
-  private POSITION_MAX = 95;
-  private POSITION_TICK = 2.5;
-
-  private DIRECTION_LEFT: boolean = false;
-  private DIRECTION_RIGHT: boolean = true;
-
-  private INVADER_MIN = 35;
-  private INVADER_MAX = 65;
-  private INVADER_TICK = 2.5;
-
-  private INVADER_INTERVAL = 1000;
+  active: boolean = false;
 
   position: number = 50;
 
-  invaders: any = {
-    X: 50,
-    Y: 5,
+  invaders = {
+    x: 50,
+    y: 5,
     direction: this.DIRECTION_RIGHT,
   }
+  private invaderInterval: number;
 
-  invaderInterval = undefined;
-
-  private SHOT_COOLDOWN: number = 500;
-
-  private cooling: boolean = false;
-
-  shotCount: number = 0;
+  private shotCount: number = 0;
   shots: Shot[] = [];
+  private shotCooling: boolean = false;
 
   constructor() { }
 
   ngOnInit() {
-    /* shamelessly stolen from stackoverflow */
-		function shuffleArray(array) {
-		  for(var i = array.length - 1; i > 0; i--) {
-		    var j = Math.floor(Math.random() * (i + 1));
-		    var temp = array[i];
-		    array[i] = array[j];
-		    array[j] = temp;
-		  }
-		}
-
-    shuffleArray(this.movies);
-    
     this.audioStart = new Audio('../../assets/audio/start.mp3');
     this.audioMusic = new Audio('../../assets/audio/music.mp3');
 
@@ -107,85 +97,13 @@ export class KonamiComponent implements OnInit {
     this.audioWin = new Audio('../../assets/audio/win.wav');
   }
 
-  private activate() {
-    this.active = true;
-    this.audioStart.play();
-
-    for(const  m of this.movies) {
-      m['dead'] = false;
-    }
-
-    setTimeout(() => {
-      this.invaderInterval = setInterval(() => {
-        this.invaderTick();
-      }, this.INVADER_INTERVAL)
-    }, 6000);
-  }
-
-  @HostListener('document:keydown', ['$event'])
-  handleCodeInput(event: KeyboardEvent) {
-    if(!this.active) {
-      if(event.key === this.CODE[this.index]) {
-        this.index++;
-
-        if(this.index === this.CODE.length) {
-          this.activate();
-        }
-      } else {
-        this.index = 0;
-      }
-    }
-    else {
-      switch(event.key) {
-        case "ArrowLeft":
-        case "a":
-          this.move(this.DIRECTION_LEFT);
-          break;
-        case "ArrowRight":
-        case "d":
-          this.move(this.DIRECTION_RIGHT);
-          break;
-        case " ":
-        case "ArrowUp":
-        case "w":
-          this.fire();
-          break
-      }
-    }
-  }
-
-  private gameOver(selection: Movie, win: boolean) {
-    clearInterval(this.invaderInterval);
-
-    for(const shot of this.shots) {
-      clearInterval(shot.interval);
-    }
-    this.shots = [];
-
-    this.audioMusic.pause();
-
-    if(win) {
-      this.audioWin.play()
-      this.animationWinning = true;
-    }
-    else {
-      this.audioDeath.play()
-      this.animationLosing = true;
-    }
-
-    setTimeout(() => {
-      this.animationFading = true;
-
-      setTimeout(() => {
-        this.animationWinning = false;
-        this.animationLosing = false;
-        this.animationFading = false;
-
-        this.active = false;
-      }, 2500);
-    }, 3000);
-
-    this.select.emit(selection);
+  private shuffle() {
+		for(var i = this.movies.length - 1; i > 0; i--) {
+		  var j = Math.floor(Math.random() * (i + 1));
+		  var temp = this.movies[i];
+		  this.movies[i] = this.movies[j];
+		  this.movies[j] = temp;
+		}
   }
 
   private locate(id: string): DOMRect {
@@ -205,20 +123,20 @@ export class KonamiComponent implements OnInit {
 
   private invaderTick() {
     if(this.invaders.direction === this.DIRECTION_RIGHT) {
-      if(this.invaders.X < this.INVADER_MAX) {
-        this.invaders.X += this.INVADER_TICK;
+      if(this.invaders.x < this.INVADER_MAX) {
+        this.invaders.x += this.INVADER_TICK;
       }
       else {
-        this.invaders.Y += this.INVADER_TICK;
+        this.invaders.y += this.INVADER_TICK;
         this.invaders.direction = this.DIRECTION_LEFT;
       }
     }
     else {
-      if(this.invaders.X > this.INVADER_MIN) {
-        this.invaders.X -= this.INVADER_TICK;
+      if(this.invaders.x > this.INVADER_MIN) {
+        this.invaders.x -= this.INVADER_TICK;
       }
       else {
-        this.invaders.Y += this.INVADER_TICK;
+        this.invaders.y += this.INVADER_TICK;
         this.invaders.direction = this.DIRECTION_RIGHT;
       }
     }
@@ -244,6 +162,111 @@ export class KonamiComponent implements OnInit {
     }
   }
 
+  private startInvaders() {
+    this.invaderInterval = setInterval(() => {
+      this.invaderTick();
+    }, this.INVADER_INTERVAL);
+  }
+
+  private stopInvaders() {
+    clearInterval(this.invaderInterval);
+  }
+
+  private initialize() {
+    this.shuffle();
+
+    for(const  m of this.movies) {
+      m['dead'] = false;
+    }
+
+    this.shots = [];
+    this.shotCount = 0;
+
+    this.position = 50;
+
+    this.invaders = {
+      x: 50,
+      y: 5,
+      direction: this.DIRECTION_RIGHT,
+    }
+  }
+
+  private activate() {
+    if(this.active) return;
+
+    this.initialize();
+
+    this.active = true;
+    this.audioStart.play();
+    setTimeout(() => this.startInvaders(), 6000);
+  }
+
+  @HostListener('document:keydown', ['$event'])
+  private handleInput(event: KeyboardEvent) {
+    if(!this.active) {
+      if(event.key === this.CODE[this.codeIndex]) {
+        this.codeIndex++;
+
+        if(this.codeIndex === this.CODE.length) {
+          this.activate();
+        }
+      } else {
+        this.codeIndex = 0;
+      }
+    }
+    else {
+      switch(event.key) {
+        case "ArrowLeft":
+        case "a":
+          this.move(this.DIRECTION_LEFT);
+          break;
+        case "ArrowRight":
+        case "d":
+          this.move(this.DIRECTION_RIGHT);
+          break;
+        case " ":
+        case "ArrowUp":
+        case "w":
+          this.fire();
+          break
+      }
+    }
+  }
+
+  private gameOver(selection: Movie, win: boolean) {
+    this.stopInvaders();
+
+    this.audioMusic.pause();
+
+    for(const shot of this.shots) {
+      clearInterval(shot.interval);
+    }
+    this.shots = [];
+
+    if(win) {
+      this.audioWin.play()
+      this.animationWinning = true;
+    }
+    else {
+      this.audioDeath.play()
+      this.animationLosing = true;
+    }
+
+    setTimeout(() => {
+      this.animationFading = true;
+
+      setTimeout(() => {
+        this.animationWinning = false;
+        this.animationLosing = false;
+        this.animationFading = false;
+
+        this.active = false;
+      }, 2500);
+    }, 3000);
+
+    this.select.emit(selection);
+  }
+
   move(direction: boolean) {
     if(direction && this.position < this.POSITION_MAX) {
       this.position += this.POSITION_TICK;
@@ -254,13 +277,13 @@ export class KonamiComponent implements OnInit {
   }
 
   fire() {
-    if(this.cooling) return;
+    if(this.shotCooling) return;
 
     let sound = new Audio(this.audioShootFile);
     sound.play();
 
-    this.cooling = true;
-    setTimeout(() => this.cooling = false, this.SHOT_COOLDOWN);
+    this.shotCooling = true;
+    setTimeout(() => this.shotCooling = false, this.SHOT_COOLDOWN);
     
     let ship = document.getElementById("ship");
 

@@ -48,7 +48,7 @@
 }
 
 .invader {
-    font-size: 5vh;
+    font-size: 3vw;
     animation: fadeInDown 0.5s ease-in 4.5s 1 both;
 }
 
@@ -66,4 +66,52 @@
 
     bottom: 10vh;
     left: 50vw;
+}
+
+.controls {
+    position: absolute;
+    bottom: 5vh;
+    right: 5vw;
+    width: 20vw;
+
+    color: white;
+
+    animation: fadeIn 1s ease-in 4.5s 1 backwards, fadeOut 1s ease-in 8.5s 1 forwards;
+}
+
+.control {
+    height: 4.5vw;
+    padding: 1vh;
+
+    border: 1px solid white;
+    border-radius: 10px;
+
+    font-size: 1vw;
+    display: flex;
+}
+
+.control.direction {
+    width: 25%;
+    margin-right: 5%;
+}
+
+.control.fire {
+    width: 40%;
+}
+
+.control .action {
+    display: inline-block;
+    align-self: flex-end;
+    text-align: right;
+    width: 100%;
+    font-size: 0.8vw;
+}
+
+.control .key {
+    font-weight: bold;
+}
+
+.direction .key {
+    font-size: 1.5vw;
+    line-height: 1vw;
 }

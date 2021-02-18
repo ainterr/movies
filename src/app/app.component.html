@@ -6,24 +6,24 @@
     <div class="btn-group d-flex">
       <a
         class="btn btn-outline-secondary"
-        [ngClass]="{active: selected === RANDOMIZER}"
+        [ngClass]="{active: view === RANDOMIZER}"
         (click)="select(RANDOMIZER)"
       >Randomizer</a>
       <a 
         class="btn btn-outline-secondary"
-        [ngClass]="{active: selected === REVIEWS}"
+        [ngClass]="{active: view === REVIEWS}"
         (click)="select(REVIEWS)"
       >Reviews</a>
     </div>
   </div>
 
   <app-randomizer 
-    *ngIf="selected === RANDOMIZER"
+    *ngIf="view === RANDOMIZER"
     [movies]="unwatched"
-    [selected]="preselected"
+    [selected]="selected"
   ></app-randomizer>
   <app-reviews
-    *ngIf="selected === REVIEWS"
+    *ngIf="view === REVIEWS"
     [movies]="watched"
   ></app-reviews>
 
