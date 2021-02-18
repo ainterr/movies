@@ -1,0 +1,50 @@
+<div class="konami" [ngClass]="{'konami-game-over': animationFading}" *ngIf="active">
+  <div
+    class="invaders row justify-content-center" 
+    [ngStyle]="{top: invaders.y+'vh', left: invaders.x+'vw'}"
+  >
+    <div
+      class="invader col-auto"
+      *ngFor="let movie of movies; let i = index"
+      id="invader-{{ i }}"
+      [ngClass]="{dead: movie.dead}"
+      title="{{ movie.title }}"
+    >
+      {{ genre_emoji(movie.genre) }}
+    </div>
+  </div>
+
+  <div
+    class="shot"
+    *ngFor="let shot of shots"
+    id="shot-{{ shot.id }}"
+    [ngStyle]="{left: shot.left+'vw', bottom: shot.bottom+'vh'}"
+  ></div>
+
+  <div
+    id="ship"
+    class="ship"
+    [ngClass]="{'ship-win': animationWinning, 'ship-lose': animationLosing}"
+    [ngStyle]="{left: position+'vw'}"
+  >
+    <img
+      src="assets/img/ship.png"
+      class="img-fluid mx-auto"
+    >
+  </div>
+
+  <div class="controls row">
+    <div class="control direction">
+      <span class="key">⬅</span>
+      <span class="action">Left</span>
+    </div>
+    <div class="control direction">
+      <span class="key">➡</span>
+      <span class="action">Right</span>
+    </div>
+    <div class="control fire">
+      <span class="key">SPACE</span>
+      <span class="action">Fire</span>
+    </div>
+  </div>
+</div>

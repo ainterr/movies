@@ -11,11 +11,12 @@ import { Movie, Review, DataService } from "./data.service";
 export class AppComponent implements OnInit {
   unwatched: Movie[];
   watched: Movie[];
+  selected: Movie;
 
   RANDOMIZER = 'randomizer';
   REVIEWS = 'reviews';
 
-  selected: string = this.RANDOMIZER;
+  view: string = this.RANDOMIZER;
 
   constructor(
     public auth: AuthenticationService,
@@ -30,6 +31,10 @@ export class AppComponent implements OnInit {
   }
 
   select(state: string): void {
-    this.selected = state;
+    this.view = state;
+  }
+
+  selectMovie(selection: Movie) {
+    this.selected = selection;
   }
 }
