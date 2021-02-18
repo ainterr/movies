@@ -40,8 +40,8 @@ export class KonamiComponent implements OnInit {
 
   private audioStart: HTMLAudioElement;
   private audioMusic: HTMLAudioElement;
-  private audioShootFile: string = "../../assets/audio/shoot.wav";
-  private audioHitFile: string = "../../assets/audio/hit.wav";
+  private audioShootFile: string = "assets/audio/shoot.wav";
+  private audioHitFile: string = "assets/audio/hit.wav";
   private audioDeath: HTMLAudioElement;
   private audioWin: HTMLAudioElement;
 
@@ -82,8 +82,8 @@ export class KonamiComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.audioStart = new Audio('../../assets/audio/start.mp3');
-    this.audioMusic = new Audio('../../assets/audio/music.mp3');
+    this.audioStart = new Audio('assets/audio/start.mp3');
+    this.audioMusic = new Audio('assets/audio/music.mp3');
 
     this.audioStart.addEventListener('ended', () => {
       this.audioMusic.play();
@@ -93,8 +93,8 @@ export class KonamiComponent implements OnInit {
       this.audioMusic.play();
     });
 
-    this.audioDeath = new Audio('../../assets/audio/death.wav');
-    this.audioWin = new Audio('../../assets/audio/win.wav');
+    this.audioDeath = new Audio('assets/audio/death.wav');
+    this.audioWin = new Audio('assets/audio/win.wav');
   }
 
   private shuffle() {

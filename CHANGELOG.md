@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.1] - 2021-02-18
+### Fixed
+- Broken audio asset path in production build.
+
 ## [1.2.0] - 2021-02-18
 ### Added
 - Added easter egg 😉.
@@ -31,7 +35,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Movie selection randomizer.
 - Watched movie review summary.
 
-[Unreleased]: https://github.com/ainterr/movies/compare/v1.2.0...HEAD
+[Unreleased]: https://github.com/ainterr/movies/compare/v1.2.1...HEAD
+[1.2.1]: https://github.com/ainterr/movies/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/ainterr/movies/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/ainterr/movies/compare/v1.0.1...v1.1.0
 [1.0.1]: https://github.com/ainterr/movies/compare/v1.0.0...v1.0.1
