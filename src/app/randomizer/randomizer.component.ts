@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 import { Movie } from '../data.service';
-import { genre_emoji, genre_color } from '../utils'
+import { genre_emoji, genre_color } from '../utils';
 
 @Component({
   selector: 'app-randomizer',
@@ -10,7 +10,7 @@ import { genre_emoji, genre_color } from '../utils'
 })
 export class RandomizerComponent {
   @Input() movies: Movie[];
-  selected: Movie;
+  @Input() selected: Movie;
 
   private filters: {[name: string]: boolean} = {};
 

@@ -17,6 +17,8 @@ export class AppComponent implements OnInit {
 
   selected: string = this.RANDOMIZER;
 
+  preselected: Movie;
+
   constructor(
     public auth: AuthenticationService,
     private data: DataService,
@@ -31,5 +33,9 @@ export class AppComponent implements OnInit {
 
   select(state: string): void {
     this.selected = state;
+  }
+
+  selectMovie(selection: Movie) {
+    this.preselected = selection;
   }
 }

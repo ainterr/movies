@@ -20,10 +20,12 @@
   <app-randomizer 
     *ngIf="selected === RANDOMIZER"
     [movies]="unwatched"
+    [selected]="preselected"
   ></app-randomizer>
   <app-reviews
     *ngIf="selected === REVIEWS"
     [movies]="watched"
   ></app-reviews>
 
+  <app-konami [movies]="unwatched" (select)="selectMovie($event)"></app-konami>
 </div>

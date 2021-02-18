@@ -1,0 +1,69 @@
+.konami {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+
+    overflow: hidden;
+
+    background: #000;
+
+    animation: fadeIn 2.5s;
+}
+
+.konami-game-over {
+    animation: fadeOut 2.5s ease-in 0s 1 forwards !important;
+}
+
+.ship {
+    position: absolute;
+    bottom: 5vh;
+    width: 5vw;
+    transform: translate(-50%);
+
+    left: 50vw;
+}
+
+.ship-lose img {
+    animation: flash 1s ease-in 2, fadeOut 1s ease-in 2s 1 forwards !important;
+}
+
+.ship-win img {
+    animation: flash 1s ease-in 2, bounceOutUp 1s ease-in 2s 1 forwards !important;
+}
+
+.ship img {
+    animation: fadeInUp 1s ease-in 2.5s 1 both, flip 1s ease-in 3.5s;
+}
+
+.invaders {
+    position: absolute;
+    width: 70vw;
+    transform: translate(-50%);
+
+    top: 5vh;
+    left: 50vw;
+}
+
+.invader {
+    font-size: 5vh;
+    animation: fadeInDown 0.5s ease-in 4.5s 1 both;
+}
+
+.dead {
+    visibility: hidden;
+}
+
+.shot {
+    position: absolute;
+    width: 4px;
+    height: 25px;
+    background: #fff;
+
+    transform: translate(-50%);
+
+    bottom: 10vh;
+    left: 50vw;
+}
