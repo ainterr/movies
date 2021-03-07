@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
 
 export interface Review {
   reviewer: string;
-  score: number;
+  score: string;
   notes?: string;
 }
 
@@ -62,7 +62,7 @@ export class DataService {
           let reviewer: string = key.split("-")[0];
           let review: Review = {
             reviewer: reviewer,
-            score: parseFloat(entry[key]),
+            score: entry[key],
           } as Review;
 
           if(entry[reviewer+"-Notes"] !== undefined) {
